@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'makersinit'
+
+Kernel.system('git init')
+Makersinit.initialize_pre_push_script
+`echo 'Initialized Makers Academy Tracking'`
