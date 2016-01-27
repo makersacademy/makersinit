@@ -2,10 +2,10 @@ require "makersinit/version"
 
 module Makersinit
   def self.initialize_pre_push_script
-    File.open('scripts/pre-push') do |f|
+    File.open('./lib/scripts/pre-push') do |f|
       f.read
     end
 
-    IO.copy_stream('scripts/pre-push', '.git/hooks/pre-push')
+    IO.copy_stream('./lib/scripts/pre-push', '.git/hooks/pre-push')
   end
 end
