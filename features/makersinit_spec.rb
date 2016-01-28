@@ -1,9 +1,11 @@
 RSpec.describe 'makersinit' do
   before do
     allow(Kernel).to receive(:system).with('git init')
+    allow(Kernel).to receive(:system).with("chmod +x #{git_hooks_path}/pre-push")
   end
 
   it 'initializes a git repo' do
+    expect(Kernel).to receive(:system).with('git init')
     # execute `makersinit`
     load './exe/makersinit'
   end
@@ -16,6 +18,11 @@ RSpec.describe 'makersinit' do
   it 'removes the pre-push.sample file' do
     load './exe/makersinit'
     expect(File).not_to exist("#{git_hooks_path}/pre-push.sample")
+  end
+
+  it 'makes the script executable' do
+    expect(Kernel).to receive(:system).with("chmod +x #{git_hooks_path}/pre-push")
+    load './exe/makersinit'
   end
 
   after do
