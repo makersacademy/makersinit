@@ -4,6 +4,8 @@ Makers Academy's customer-facing command-line tool. Initializes tracking for use
 
 ## Installation
 
+### Production
+
 Add this line to your application's Gemfile:
 
 ```ruby
@@ -17,6 +19,16 @@ And then execute:
 Or install it yourself as:
 
     $ gem install makersinit
+    
+### Development
+
+Navigate to the cloned directory, then:
+
+```sh
+gem install `pwd`/makersinit-0.1.5.gem
+```
+
+(if the current version of the gem is 0.1.5).
 
 ## Usage
 
