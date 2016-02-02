@@ -4,9 +4,6 @@ module Makersinit
   GIT_HOOKS_PATH = ".git/hooks"
 
   def self.initialize_pre_push_script
-    File.open(script_path) do |f|
-      f.read
-    end
     copy_script_to_hook
     remove_sample_hook
   end
@@ -18,12 +15,15 @@ module Makersinit
   end
 
   def self.copy_script_to_hook
-    IO.copy_stream(script_path, "#{GIT_HOOKS_PATH}/pre-push")
+    IO.copy_stream(script_path, target_path)
   end
 
   def self.remove_sample_hook
-    if File.exist?("#{GIT_HOOKS_PATH}/pre-push.sample")
-      File.delete("#{GIT_HOOKS_PATH}/pre-push.sample")
-    end
+    file = target_path + '.sample'
+    File.delete(file) if File.exist? file
+  end
+
+  def self.target_path
+    "#{GIT_HOOKS_PATH}/pre-push"
   end
 end
