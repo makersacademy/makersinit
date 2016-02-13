@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo 'Pushing details to Tracker'
 # Notifies a webhook on attempted "git push".  Called by "git
 # push" after it has checked the remote status, but before anything has been
@@ -24,7 +24,7 @@ function posthook {
   curl "git-receiver.herokuapp.com/commits" \
   -X POST \
   -H "Content-type: application/json" \
-  -d "{\"email\": \""$1"\", \"commits\": ["$2"], \"remote_url\": \""$3"\"}"
+  -d '"{\"email\": \""$1"\", \"commits\": ["$2"], \"remote_url\": \""$3"\"}"'
 }
 
 # Join function in the style of Pascal Pilz
