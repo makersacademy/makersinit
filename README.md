@@ -25,10 +25,10 @@ Or install it yourself as:
 Navigate to the cloned directory, then:
 
 ```sh
-gem install `pwd`/makersinit-0.1.5.gem
+gem install `pwd`/makersinit-1.0.0.gem
 ```
 
-(if the current version of the gem is 0.1.5).
+(if the current version of the gem is 1.0.0).
 
 ## Usage
 

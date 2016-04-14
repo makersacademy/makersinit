@@ -6,4 +6,4 @@ Kernel.system('git init')
 Makersinit.initialize_pre_push_script
 # Make the script executable
 Kernel.system('chmod +x .git/hooks/pre-push')
-`echo 'Initialized Makers Academy Tracking'`
+`echo 'Initialized Makers Academy Tracking (MakersInit v1)'`

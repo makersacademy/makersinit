@@ -1,5 +1,5 @@
-#!/bin/sh
-echo 'Pushing details to Tracker'
+#!/bin/bash
+echo 'Pushing details to Tracker (MakersInit v1)'
 # Notifies a webhook on attempted "git push".  Called by "git
 # push" after it has checked the remote status, but before anything has been
 # pushed.  If this script exits with a non-zero status nothing will be pushed.
@@ -20,7 +20,7 @@ echo 'Pushing details to Tracker'
 # Utility functions
 # Webhook-posting function
 
-function posthook {
+posthook(){
   curl "git-receiver.herokuapp.com/commits" \
   -X POST \
   -H "Content-type: application/json" \
@@ -29,7 +29,7 @@ function posthook {
 
 # Join function in the style of Pascal Pilz
 
-function join { local IFS="$1"; shift; echo "$*"; }
+join(){ local IFS="$1"; shift; echo "$*"; }
 
 remote="$1"
 url="$2"
@@ -62,7 +62,7 @@ do
       # Construct an array of the commit SHAs
       while read -r line; do
         commits_array+=(\""$line"\")
-      done <<< "$commits"
+      done<<<"${commits}"
       # Construct the joined string for JSON
       commits_string=`join , "${commits_array[@]}"`
       email=`git config user.email`
