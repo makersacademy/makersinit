@@ -1,26 +1,28 @@
 # `makersinit`
 
-Makers Academy's customer-facing command-line tool. Initializes tracking for use with [Hub](http://github.com/makersacademy/hub).
+Makers Academy's customer-facing command-line tool. 
 
-## Installation
+Tracks student git commits in [Hub](http://github.com/makersacademy/hub).
 
-### Production
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'makersinit'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+## How to use makersinit to track your Git commits
 
     $ gem install makersinit
+
+Navigate into a repo on your computer that you're working on.  You'll need to do this for each repo you work on.
+
+    $ makersinit
     
-### Development
+## How makersinit works under the hood (if you're curious)
+
+This gem uses a git pre-push hook to push commit data to [Git Receiver](http://github.com/makersacademy/git_receiver), which then pushes well-formed data into a Firebase.
+
+This data is then pushed across to [Hub](http://github.com/makersacademy/hub), which displays commit data, live, to coaches.
+
+The average time between pushing a commit to being displayed on Hub is around 0.5 seconds.
+
+## How to do development on the makersinit gem code itself (no need to do this if you just want to use the gem)
+
+### Installation
 
 Navigate to the cloned directory, then:
 
@@ -30,21 +32,7 @@ gem install `pwd`/makersinit-1.0.0.gem
 
 (if the current version of the gem is 1.0.0).
 
-## Usage
-
-- Navigate to a directory.
-- Run `makersinit`.
-- Continue to work as normal. All your commits will be tracked.
-
-## Under the hood
-
-This gem uses a git pre-push hook to push commit data to [Git Receiver](http://github.com/makersacademy/git_receiver), which then pushes well-formed data into a Firebase.
-
-This data is then pushed across to [Hub](http://github.com/makersacademy/hub), which displays commit data, live, to coaches.
-
-The average time between pushing a commit to being displayed on Hub is around 0.5 seconds.
-
-## Development
+### Setup
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rspec features` to run feature tests. Also, run `rspec spec` to run unit tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
