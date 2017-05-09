@@ -2,7 +2,7 @@
 
 Makers Academy's customer-facing command-line tool. 
 
-Tracks student git commits in [Hub](http://github.com/makersacademy/hub).
+Tracks student git commits in [Hub](https://hub.makersacademy.com).
 
 ## How to use makersinit to track your Git commits
 
@@ -16,7 +16,7 @@ Navigate into a repo on your computer that you're working on.  You'll need to do
 
 This gem uses a git pre-push hook to push commit data to [Git Receiver](http://github.com/makersacademy/git_receiver), which then pushes well-formed data into a Firebase.
 
-This data is then pushed across to [Hub](http://github.com/makersacademy/hub), which displays commit data, live, to coaches.
+This data is then pushed across to [Hub](https://hub.makersacademy.com), which displays commit data, live, to coaches.
 
 The average time between pushing a commit to being displayed on Hub is around 0.5 seconds.
 
